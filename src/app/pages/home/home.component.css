@@ -1,0 +1,298 @@
+/* ---------------- Header & Bells ---------------- */
+.header{
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  padding: 150px 80px 60px;
+}
+
+.nataraja-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(../../../../public/assets/nadarajar.png);
+  opacity: 0.08;
+  z-index: 1;
+}
+
+.bells {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.bell {
+  width: 150px;
+  height: auto;
+  position: relative;
+  animation: swing 6s ease-in-out infinite;
+}
+
+.bell-left {
+  margin-left: 60px;
+  animation-delay: 0s;
+}
+
+.bell-right {
+  margin-right: 60px;
+  animation-delay: 1.5s;
+}
+
+@keyframes swing {
+  0%   { transform: rotate(4deg); }
+  25%  { transform: rotate(0deg); }
+  50%  { transform: rotate(-4deg); }
+  75%  { transform: rotate(0deg); }
+  100% { transform: rotate(4deg); }
+}
+
+/* ---------------- Title & Teacher ---------------- */
+.title{
+  max-width: 600px;
+  animation: fadeIn 2s ease forwards;
+}
+
+.teacher-image {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.teacher-image img {
+  width: 280px;
+  max-width: 60vw;
+  height: auto;
+  object-fit: cover;
+}
+
+.teacher-name{
+  font-weight: 600;
+  color: #f9e7bd;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeIn 3s ease forwards 1.2s;
+}
+
+/* ---------------- Bharatanatyam Section ---------------- */
+.bharatanatyam {
+  padding: 100px 40px;
+  margin: 0;
+}
+
+.bharatanatyam-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bharatanatyam h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.bharatanatyam h2::after {
+  content: "";
+  display: block;
+  width: auto;
+  height: 3px;
+  background-color: #af9a53;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.bharatanatyam-history {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 60px;
+}
+
+.bharatanatyam-image{
+  display: flex;
+  justify-content: center;
+}
+
+.bharatanatyam-image img {
+  display: flex;
+  justify-content: center;
+  width: 260px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bharatanatyam-image img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------------- Image Grids ---------------- */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.image-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.302);
+}
+
+.image-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.image-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.bharatanatyam-text p {
+  margin-bottom: 20px;
+}
+
+/* ---------------- Responsive Design ---------------- */
+@media (max-width: 1200px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 40px 40px;
+  }
+
+  .teacher-image {
+    height: auto;
+    margin-top: 40px;
+  }
+
+  .teacher-image img {
+    width: 200px;
+    max-width: 80vw;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
+  .bells {
+    position: absolute;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .bharatanatyam-history {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bharatanatyam-image img {
+    width: 200px;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .image-card img {
+    height: 140px;
+  }
+}
+
+/* ---------------- Mobile Version (max-width: 600px) ---------------- */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 150px; /* Header-Content unter Glocken */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .bells {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .teacher-image {
+    margin-top: 20px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .teacher-image img {
+    width: 160px;
+  }
+
+  .teacher-name {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  .bharatanatyam h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .bharatanatyam-text p {
+    font-size: 0.9rem;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .image-card img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  .bharatanatyam h2 {
+    font-size: 1.7rem;
+  }
+
+  .title h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ---------------- FadeIn Animation ---------------- */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

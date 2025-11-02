@@ -1,0 +1,231 @@
+/* ===================== Candles ===================== */
+.candles {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.candle {
+  width: 200px;
+  height: auto;
+  animation: swing 6s ease-in-out infinite;
+}
+
+.candle-left { margin-left: 20px; animation-delay: 0s; }
+.candle-right { margin-right: 20px; animation-delay: 1.5s; }
+
+@keyframes swing {
+  0%   { transform: rotate(4deg); }
+  25%  { transform: rotate(0deg); }
+  50%  { transform: rotate(-4deg); }
+  75%  { transform: rotate(0deg); }
+  100% { transform: rotate(4deg); }
+}
+
+/* ===================== Header ===================== */
+.header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* ===================== Slider Section ===================== */
+.slider-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3a2e2b;
+  color: #f7f3e8;
+  padding: 20px 0;
+}
+
+.slider-header h2 {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.slider-header p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3a2e2b;
+}
+
+.slider-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-slide.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-slide img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Prev/Next Buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background-color: rgba(0,0,0,0.4);
+  border: none;
+  color: #f7f3e8;
+  border-radius: 50%;
+  padding: 12px;
+  z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.7); }
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: #d4af37;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active { background-color: #f9e7bd; }
+
+/* ===================== Video Section ===================== */
+.video-section {
+  margin-top: 40px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.video-section h3 {
+  color: #d4af37;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.video-thumbnail {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.video-thumbnail img {
+  width: 60%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover img {
+  transform: scale(1.03);
+}
+
+.play-button {
+  position: absolute;
+  font-size: 60px;
+  color: #d4af37;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ===================== Video Modal ===================== */
+.video-modal {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.85);
+  justify-content:center;
+  align-items:center;
+  display: flex;
+  z-index: 1000;
+}
+
+.video-container {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.event-video {
+  width: 100%;
+  height: auto;
+  display:block;
+}
+
+.close-btn {
+  position:absolute;
+  top:10px; right:15px;
+  font-size:26px;
+  background:none;
+  border:none;
+  color:#f7f3e8;
+  cursor:pointer;
+}
+.close-btn:hover { color:#d4af37; }
+
+/* ===================== Responsive Breakpoints ===================== */
+@media (max-width: 1024px) {
+  .slider-wrapper { width: 80%; height: 60vh; }
+  .slider-slide img { height: 100%; }
+  .candle { width: 120px; }
+}
+
+@media (max-width: 768px) {
+  .slider-wrapper { width: 90%; height: 50vh; }
+  .slider-slide img { height: 100%; }
+  .prev, .next { font-size: 24px; padding: 10px; }
+  .dot { width: 12px; height: 12px; }
+  .candle { width: 100px; }
+}
+
+@media (max-width: 480px) {
+  .slider-wrapper { width: 100%; height: 40vh; }
+  .slider-slide img { height: 100%; }
+  .video-thumbnail img { width: 90%; }
+  .play-button { font-size: 40px; }
+  .slider-header h2 { font-size: 1.5rem; }
+  .slider-header p { font-size: 0.9rem; }
+  .video-section h3 { font-size: 1.5rem; }
+  .candle { width: 80px; }
+}

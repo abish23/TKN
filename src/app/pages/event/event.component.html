@@ -1,0 +1,61 @@
+<div class="candles">
+  <img src="assets/laterne.png" alt="Left hanging candle" class="candle candle-left" />
+  <img src="assets/laterne.png" alt="Right hanging candle" class="candle candle-right" />
+</div>
+
+<section class="header">
+  <div class="title">
+    <h1>Events</h1>
+    <p class="subtitle">Our latest events and moments</p>
+  </div>
+</section>
+
+<section class="slider-section section-alt" aria-label="Event gallery">
+  <div class="slider-header">
+    <h2>Natyamail 2025</h2>
+    <p>Check out our latest images</p>
+  </div>
+
+  <div #sliderWrapper class="slider-wrapper" role="region" aria-roledescription="carousel" aria-label="Event images">
+    <!-- Slides -->
+    <div class="slider-slide" *ngFor="let img of images; let i = index"
+         [class.active]="i === currentSlide"
+         [attr.aria-hidden]="i === currentSlide ? 'false' : 'true'">
+      <img [src]="img" [alt]="'Bild ' + (i + 1)" />
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="prev" (click)="prev()" aria-label="Previous slide">&#10094;</button>
+    <button class="next" (click)="next()" aria-label="Next slide">&#10095;</button>
+
+    <!-- Dots -->
+    <div class="dots" role="tablist" aria-label="Slide navigation">
+      <button class="dot" *ngFor="let img of images; let i = index"
+              (click)="goTo(i)"
+              [class.active]="i === currentSlide"
+              [attr.aria-selected]="i === currentSlide"
+              [attr.aria-label]="'Go to slide ' + (i + 1)">
+      </button>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <div class="video-section">
+    <h3>Watch the Highlights</h3>
+    <div class="video-thumbnail" (click)="openVideoModal()">
+      <img src="assets/kali.jpeg" alt="Video Preview">
+      <span class="play-button">&#9658;</span>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div class="video-modal" *ngIf="isVideoOpen" (click)="closeVideoModal()">
+    <div class="video-container" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeVideoModal()">✖</button>
+      <video controls autoplay class="event-video">
+        <source src="assets/kaliVarnam.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>

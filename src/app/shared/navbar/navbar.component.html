@@ -1,0 +1,20 @@
+<header class="navbar">
+  <img src="assets/LogoOutlineWhite2.png" alt="logo" />
+
+  <button
+    class="hamburger"
+    [class.active]="menuOpen"
+    (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav [class.open]="menuOpen" (click)="closeMenu()">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="about" routerLinkActive="active">About Us</a>
+    <a routerLink="classes" routerLinkActive="active">Classes</a>
+    <a routerLink="event" routerLinkActive="active">Events</a>
+    <a routerLink="contact" routerLinkActive="active">Contact</a>
+  </nav>
+</header>
